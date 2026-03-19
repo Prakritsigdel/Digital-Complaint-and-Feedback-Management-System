@@ -1,4 +1,9 @@
-package com.college.cms;
+package com.college.cms.view;
+
+import com.college.cms.controller.AppController;
+import com.college.cms.model.Admin;
+import com.college.cms.model.Student;
+import com.college.cms.model.User;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -8,15 +13,6 @@ import javafx.scene.layout.*;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-/**
- * LoginScreen – Two-panel layout (Figma Image 1).
- *
- * UI RULE ENFORCED:
- *   This screen never displays any hardcoded user or complaint data.
- *   The only static strings here are UI chrome (labels, placeholders, hints)
- *   — not application data.  All data retrieved from the DB flows through
- *   AppController.login() → model object → appropriate dashboard.
- */
 public class LoginScreen {
 
     private final Stage         stage;

@@ -1,18 +1,8 @@
-package com.college.cms;
+package com.college.cms.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Complaint – Maps to the `complaints` table.
- *
- * Every field is populated exclusively from database query results.
- * No field value is ever hardcoded in the UI layer.
- *
- * Additional denormalised fields (studentName, studentCourse) are
- * populated via a JOIN query in ComplaintDAO so the UI can display
- * them without a second round-trip.
- */
 public class Complaint {
 
     private int           complaintId;

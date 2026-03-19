@@ -1,11 +1,7 @@
-package com.college.cms;
+package com.college.cms.model;
 
 import java.time.LocalDateTime;
 
-/**
- * Response – Maps to the `responses` table.
- * One response per complaint (enforced by UNIQUE constraint on complaint_id).
- */
 public class Response {
 
     private int           responseId;

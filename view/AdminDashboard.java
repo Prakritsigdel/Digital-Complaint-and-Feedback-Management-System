@@ -1,4 +1,4 @@
-package com.college.cms;
+package com.college.cms.view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -9,27 +9,12 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
-/**
- * AdminDashboard – Figma Image 3.
- *
- * STRICT DATA RULE — enforced throughout:
- *   Every Label, Text, or TableCell whose content is application data
- *   (student name, ID, course, complaint ID, category, description,
- *   status, response, date) gets its value exclusively from:
- *
- *       complaint.getXxx()   or   response.getResponseText()
- *
- *   which were populated by:
- *       SELECT … FROM complaints JOIN students LEFT JOIN responses …
- *
- *   Not a single application-data string is written as a literal in this file.
- *
- * LAYOUT:
- *   ┌──────────── TOP BAR (admin.getName() from DB) ─────────────┐
- *   ├────── LEFT: ticket list ──────┬──── RIGHT: detail view ────┤
- *   │  one card per DB row          │  fields from complaint obj  │
- *   └───────────────────────────────┴────────────────────────────┘
- */
+import com.college.cms.controller.AppController;
+import com.college.cms.model.Admin;
+import com.college.cms.model.Complaint;
+import com.college.cms.model.Response;
+import com.college.cms.util.UiHelper;
+
 public class AdminDashboard {
 
     private final Stage         stage;

@@ -1,14 +1,6 @@
-package com.college.cms;
+package com.college.cms.model;
 
 import java.sql.*;
-
-/**
- * UserDAO – Data Access Object for Student and Admin records.
- *
- * Every query uses PreparedStatement to prevent SQL injection.
- * All data returned from here flows to the UI through model objects —
- * no raw strings from the DB are ever hardcoded in the UI layer.
- */
 public class UserDAO {
 
     private Connection conn() throws SQLException {

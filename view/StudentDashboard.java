@@ -1,4 +1,4 @@
-package com.college.cms;
+package com.college.cms.view;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -10,18 +10,11 @@ import javafx.stage.Stage;
 
 import java.util.List;
 
-/**
- * StudentDashboard – Figma Images 4 & 5.
- *
- * STRICT DATA RULE:
- *   Every piece of text displayed here comes from one of:
- *     • student.getXxx()   – data loaded from DB on login
- *     • complaint.getXxx() – data loaded from DB via getMyComplaints()
- *     • response.getXxx()  – data loaded from DB via getResponse()
- *
- *   No name, ID, date, category, description, or status value
- *   is ever hardcoded as a string literal in this file.
- */
+import com.college.cms.controller.AppController;
+import com.college.cms.model.Complaint;
+import com.college.cms.model.Student;
+import com.college.cms.util.UiHelper;
+
 public class StudentDashboard {
 
     private final Stage         stage;

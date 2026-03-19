@@ -1,20 +1,15 @@
-package com.college.cms;
+package com.college.cms.controller;
 
 import java.util.List;
 
-/**
- * AppController – Connects JavaFX UI screens to DAO classes.
- *
- * DATA FLOW:
- *   UI event (button click)
- *     → AppController method
- *       → DAO (SQL via PreparedStatement)
- *         → Model object
- *           → returned to UI for display
- *
- * The UI NEVER calls DAO classes directly.
- * The UI NEVER constructs data strings — it only reads model getters.
- */
+import com.college.cms.model.Admin;
+import com.college.cms.model.Complaint;
+import com.college.cms.model.ComplaintDAO;
+import com.college.cms.model.Response;
+import com.college.cms.model.Student;
+import com.college.cms.model.User;
+import com.college.cms.model.UserDAO;
+
 public class AppController {
 
     private final UserDAO      userDAO      = new UserDAO();
@@ -29,12 +24,27 @@ public class AppController {
      * @return Student, Admin, or null if credentials are wrong.
      */
     public User login(String email, String password) {
-        if (email == null || email.isBlank())    return null;
+        if (email == null || email.isBlank())       return null;
         if (password == null || password.isBlank()) return null;
-        User u = userDAO.loginStudent(email, password);
-        if (u == null) u = userDAO.loginAdmin(email, password);
+
+        User u = userDAO.loginStudent(email.trim(), password);
+        if (u == null) u = userDAO.loginAdmin(email.trim(), password);
+
+        // ── SUCCESS ALERT: only fires if a matching user was found in DB ──
+        if (u != null) {
+            showSuccess("Login successful. Welcome, " + getDisplayName(u) + "!");
+        }
+
         return u;
     }
+
+    // ── Helper to get the display name from either user type ─────────────
+    private String getDisplayName(User u) {
+        if (u instanceof Student s) return s.getName();
+        if (u instanceof Admin   a) return a.getName();
+        return u.getEmail();
+    }
+
 
     /**
      * Validates input and registers a new student.
@@ -57,8 +67,11 @@ public class AppController {
         Student s = new Student(studentId.trim(), name.trim(),
                                 email.trim().toLowerCase(),
                                 course.trim(), password);
-        return userDAO.registerStudent(s) ? null
-               : "Registration failed — please try again.";
+        boolean saved = userDAO.registerStudent(s);
+        if (saved) {
+            showSuccess("Account created successfully!\nYou can now log in.");
+        }
+        return saved ? null : "Registration failed — please try again.";
     }
 
     // ════════════════════════════════════════════════════════
@@ -78,8 +91,14 @@ public class AppController {
             return "Description must be at least 15 characters.";
 
         Complaint c = new Complaint(studentId, category, description.trim());
-        return complaintDAO.insertComplaint(c) ? null
-               : "Failed to submit complaint — please try again.";
+
+     // ── SUCCESS ALERT: only fires if INSERT into complaints table succeeded ──
+     boolean inserted = complaintDAO.insertComplaint(c);
+     if (inserted) {
+         showSuccess("Complaint submitted successfully!\n" +
+                     "You can track its status in My History.");
+     }
+     return inserted ? null : "Failed to submit complaint — please try again.";
     }
 
     /**
@@ -115,8 +134,15 @@ public class AppController {
             return "Please select a status.";
 
         Response r = new Response(complaintId, adminId, responseText.trim());
-        complaintDAO.saveResponse(r);
-        complaintDAO.updateStatus(complaintId, newStatus);
+
+        boolean responseSaved = complaintDAO.saveResponse(r);
+        boolean statusUpdated = complaintDAO.updateStatus(complaintId, newStatus);
+
+        // ── SUCCESS ALERT: only fires if BOTH response saved AND status updated ──
+        if (responseSaved && statusUpdated) {
+            showSuccess("Response submitted successfully!\n" +
+                        "Complaint status updated to: " + newStatus);
+        }
         return null;
     }
 
@@ -124,4 +150,13 @@ public class AppController {
     public Response getResponse(int complaintId) {
         return complaintDAO.getResponse(complaintId);
     }
+    private void showSuccess(String message) {
+        javafx.scene.control.Alert alert =
+            new javafx.scene.control.Alert(
+                javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    } 
 }

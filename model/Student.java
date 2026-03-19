@@ -1,9 +1,5 @@
-package com.college.cms;
+package com.college.cms.model;
 
-/**
- * Student – Maps to the `students` table.
- * All fields are populated from database query results.
- */
 public class Student extends User {
 
     private String studentId; // PRIMARY KEY in DB  e.g. "STU2024001" entered by user

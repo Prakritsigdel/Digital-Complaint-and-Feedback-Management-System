@@ -1,15 +1,9 @@
-package com.college.cms;
+package com.college.cms.util;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
-/**
- * UiHelper – Factory for shared UI components used across multiple screens.
- *
- * CRITICAL: Every method here accepts data values from model objects
- * and never contains hardcoded display strings.
- */
 public final class UiHelper {
 
     private UiHelper() {}

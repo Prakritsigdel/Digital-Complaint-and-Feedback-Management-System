@@ -1,9 +1,4 @@
-package com.college.cms;
-
-/**
- * User – Abstract base class.
- * Demonstrates: Abstraction, Encapsulation, Inheritance (Student / Admin extend this).
- */
+package com.college.cms.model;
 public abstract class User {
 
     private String email;

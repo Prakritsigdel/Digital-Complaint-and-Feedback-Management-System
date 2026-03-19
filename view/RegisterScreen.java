@@ -1,4 +1,6 @@
-package com.college.cms;
+package com.college.cms.view;
+
+import com.college.cms.controller.AppController;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -8,15 +10,6 @@ import javafx.scene.layout.*;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-/**
- * RegisterScreen – Student registration form (Figma Image 2).
- *
- * On submit, all field values are passed to AppController.register()
- * which validates them and issues:
- *   INSERT INTO students (student_id, name, email, course, password) VALUES (...)
- *
- * No placeholder text from the Figma design is ever used as a data value.
- */
 public class RegisterScreen {
 
     private final Stage         stage;

@@ -1,8 +1,5 @@
-package com.college.cms;
+package com.college.cms.model;
 
-/**
- * Admin – Maps to the `admins` table.
- */
 public class Admin extends User {
 
     private String adminId;

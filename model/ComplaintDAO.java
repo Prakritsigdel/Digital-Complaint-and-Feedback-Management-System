@@ -1,19 +1,9 @@
-package com.college.cms;
+package com.college.cms.model;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * ComplaintDAO – Data Access Object for complaints and responses.
- *
- * DATA FLOW enforced here:
- *   MySQL → JDBC ResultSet → Complaint / Response model objects
- *   → returned to AppController → bound to JavaFX UI nodes.
- *
- * No string from the DB is ever written directly into a UI Label.
- * All values travel through model getters.
- */
 public class ComplaintDAO {
 
     private Connection conn() throws SQLException {
