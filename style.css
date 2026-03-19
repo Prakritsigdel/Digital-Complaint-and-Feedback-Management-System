@@ -1,0 +1,342 @@
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-background-color: #f0f4f8;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   AUTH SCREENS (Login & Register)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Blue gradient left branding panel */
+#left-panel {
+    -fx-background-color: linear-gradient(to bottom right, #1a3fa8, #1d4ed8, #2563eb);
+}
+
+/* Light grey right form panel */
+#right-panel {
+    -fx-background-color: #f1f5f9;
+}
+
+/* Icon box (graduation cap / shield) */
+.icon-box {
+    -fx-background-color: rgba(255,255,255,0.18);
+    -fx-background-radius: 16;
+    -fx-min-width:  86;  -fx-pref-width:  86;
+    -fx-min-height: 86;  -fx-pref-height: 86;
+}
+
+/* Large branding headline on left panel */
+.portal-title {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-text-alignment: center;
+}
+
+.portal-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: rgba(255,255,255,0.78);
+    -fx-text-alignment: center;
+}
+
+/* Benefits list box (Register screen) */
+.benefits-box {
+    -fx-background-color: rgba(255,255,255,0.12);
+    -fx-background-radius: 10;
+    -fx-padding: 16;
+}
+
+/* ─── White card (login / register form) ────────────────────── */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.09), 22, 0, 0, 4);
+}
+
+.card-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.card-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #64748b;
+    -fx-padding: 0 0 6 0;
+}
+
+/* ─── Form elements ─────────────────────────────────────────── */
+.field-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #374151;
+}
+
+.input-field {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 8;
+    -fx-border-width: 1.5;
+    -fx-pref-height: 42;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1e293b;
+    -fx-padding: 0 10 0 10;
+}
+
+.input-field:focused {
+    -fx-border-color: #2563eb;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.15), 6, 0, 0, 0);
+}
+
+/* TextArea */
+.text-area {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 8;
+    -fx-border-width: 1.5;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1e293b;
+}
+
+.text-area:focused {
+    -fx-border-color: #2563eb;
+    -fx-border-width: 2;
+}
+
+/* Remove default TextArea grey background */
+.text-area .scroll-pane,
+.text-area .scroll-pane > .viewport,
+.text-area .content {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+}
+
+/* ComboBox popup */
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #eff6ff;
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+.btn-primary {
+    -fx-background-color: #1d4ed8;
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-pref-height: 46;
+    -fx-cursor: hand;
+}
+
+.btn-primary:hover   { -fx-background-color: #1e40af; }
+.btn-primary:pressed { -fx-background-color: #1e3a8a; }
+
+.btn-secondary {
+    -fx-background-color: #f1f5f9;
+    -fx-background-radius: 8;
+    -fx-border-color: #d1d5db;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-text-fill: #475569;
+    -fx-font-size: 13px;
+    -fx-pref-height: 36;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover { -fx-background-color: #e2e8f0; }
+
+/* ─── Hyperlinks & text helpers ─────────────────────────────── */
+.link {
+    -fx-text-fill: #2563eb;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.link:hover { -fx-text-fill: #1d4ed8; }
+
+.hint-text  { -fx-font-size: 13px; -fx-text-fill: #64748b; }
+
+.demo-text  {
+    -fx-font-size: 11px;
+    -fx-text-fill: #94a3b8;
+    -fx-font-style: italic;
+}
+
+.error-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #dc2626;
+    -fx-background-color: #fef2f2;
+    -fx-background-radius: 6;
+    -fx-padding: 7 10 7 10;
+    -fx-border-color: #fecaca;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   STUDENT DASHBOARD — SIDEBAR
+   ══════════════════════════════════════════════════════════════ */
+
+/* Gradient matches the left auth panel for visual continuity */
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #1a3fa8, #1d4ed8);
+    -fx-padding: 18 14 18 14;
+}
+
+.avatar {
+    -fx-background-color: rgba(255,255,255,0.22);
+    -fx-background-radius: 50%;
+    -fx-border-color: rgba(255,255,255,0.38);
+    -fx-border-radius: 50%;
+    -fx-border-width: 2;
+}
+
+.avatar-label {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.user-name { -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: white; }
+.user-role { -fx-font-size: 11px; -fx-text-fill: rgba(255,255,255,0.68); }
+
+/* Nav buttons */
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-text-fill: rgba(255,255,255,0.78);
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14 10 14;
+    -fx-cursor: hand;
+}
+
+.nav-btn:hover       { -fx-background-color: rgba(255,255,255,0.12); -fx-text-fill: white; }
+.nav-btn-active      { -fx-background-color: rgba(255,255,255,0.18); -fx-text-fill: white; -fx-font-weight: bold; }
+
+.logout-btn {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-text-fill: rgba(255,255,255,0.68);
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 14 10 14;
+    -fx-cursor: hand;
+    -fx-border-color: rgba(255,255,255,0.22);
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+
+.logout-btn:hover { -fx-background-color: rgba(255,255,255,0.10); -fx-text-fill: white; }
+
+/* ══════════════════════════════════════════════════════════════
+   MAIN CONTENT
+   ══════════════════════════════════════════════════════════════ */
+
+.page-title   { -fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #1e293b; }
+.page-subtitle{ -fx-font-size: 13px; -fx-text-fill: #64748b; }
+
+/* ══════════════════════════════════════════════════════════════
+   COMPLAINT HISTORY TABLE
+   ══════════════════════════════════════════════════════════════ */
+
+.history-container {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 14, 0, 0, 2);
+}
+
+.history-header-row {
+    -fx-background-color: #f8fafc;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1.5 0;
+}
+
+.col-header-lbl {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #94a3b8;
+}
+
+.history-row {
+    -fx-background-color: white;
+    -fx-border-color: #f1f5f9;
+    -fx-border-width: 0 0 1 0;
+}
+
+.history-row:hover { -fx-background-color: #f8fafc; }
+
+.ticket-id-lbl {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.action-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2563eb;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+
+.action-link:hover { -fx-underline: true; }
+
+/* Admin remarks expandable panel */
+.admin-remarks-box {
+    -fx-background-color: #eff6ff;
+    -fx-border-color: #bfdbfe;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 16 24 16 24;
+}
+
+.admin-remarks-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2563eb;
+}
+
+.admin-remarks-text { -fx-font-size: 13px; -fx-text-fill: #334155; }
+
+/* ══════════════════════════════════════════════════════════════
+   ADMIN DASHBOARD — TOP BAR
+   ══════════════════════════════════════════════════════════════ */
+
+.topbar {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 0 0 1 0;
+    -fx-pref-height: 62;
+    -fx-min-height: 62;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 6, 0, 0, 2);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SCROLLPANE RESET
+   ══════════════════════════════════════════════════════════════ */
+
+.scroll-pane,
+.scroll-pane > .viewport { -fx-background-color: transparent; -fx-background: transparent; }
+
+.scroll-bar              { -fx-background-color: #f1f5f9; }
+.scroll-bar .thumb       { -fx-background-color: #cbd5e1; -fx-background-radius: 6; }
+.scroll-bar .thumb:hover { -fx-background-color: #94a3b8; }
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button { -fx-background-color: transparent; -fx-pref-height: 0; -fx-pref-width: 0; }
+
+/* ─── Separator ─────────────────────────────────────────────── */
+.separator .line { -fx-border-color: #e2e8f0; }
+
+/* ─── Tooltip ───────────────────────────────────────────────── */
+.tooltip {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-background-radius: 6;
+    -fx-padding: 5 10 5 10;
+}
